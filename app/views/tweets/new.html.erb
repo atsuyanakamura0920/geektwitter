@@ -1,0 +1,21 @@
+<h1>GeekTwitter</h1>
+<h3>新規Tweet</h3>
+
+<%= link_to "Tweet一覧に戻る", tweets_path %>
+<%= stylesheet_link_tag 'new', :media => "all" %>
+
+<div class="post-container">
+    <p class="title">投稿フォーム</p>
+    <%= form_for(@tweet, :url => { controller:'tweets', action:'create'})do |f| %>
+    <%= f.label :投稿内容 %>
+        <br>
+        <%= f.text_field :body,size: 140%>
+        <br>
+        <div class="field">
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+      </div>
+    <%= f.submit "送信"%>
+    <br>
+    <% end %>
+</div>
